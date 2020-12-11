@@ -16,9 +16,10 @@ class App extends Component {
     this.setState({ [name]: value });
 
   createAndDownloadPdf = () => {
+    const url = "http://localhost:5000";
     axios
-      .post("/create-pdf", this.state)
-      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
+      .post(`${url}/create-pdf`, this.state)
+      .then(() => axios.get(`${url}/fetch-pdf`, { responseType: "blob" }))
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
