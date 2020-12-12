@@ -21,9 +21,9 @@ class App extends Component {
       .post(`${url}/create-pdf`, this.state)
       .then(() => axios.get(`${url}/fetch-pdf`, { responseType: "blob" }))
       .then((res) => {
-        //const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
-        //saveAs(pdfBlob, "newPdf.pdf");
+        saveAs(pdfBlob, "newPdf.pdf");
       });
   };
 
