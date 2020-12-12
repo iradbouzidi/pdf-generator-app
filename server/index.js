@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/", (res) => {
+app.get("/", (req, res) => {
   res.send("PDF Generator API");
 });
 

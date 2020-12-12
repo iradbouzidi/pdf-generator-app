@@ -16,14 +16,14 @@ class App extends Component {
     this.setState({ [name]: value });
 
   createAndDownloadPdf = () => {
-    const url = "http://localhost:5000";
+    const url = "https://pdf-generator-app-irad.herokuapp.com";
     axios
       .post(`${url}/create-pdf`, this.state)
       .then(() => axios.get(`${url}/fetch-pdf`, { responseType: "blob" }))
       .then((res) => {
-        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+        //const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
-        saveAs(pdfBlob, "newPdf.pdf");
+        //saveAs(pdfBlob, "newPdf.pdf");
       });
   };
 
